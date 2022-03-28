@@ -5,7 +5,7 @@ import numpy as np
 import scipy.signal
 from neurokit2 import signal_smooth
 
-def ppg_findpeaks(ppg_cleaned, sampling_rate=1000, method="elgendi", show=False,peakwindow=0.111, beatwindow=0.667, beatoffset=0.02, mindelay=0.3):
+def ppg_findpeaks_v2(ppg_cleaned, sampling_rate=1000, method="elgendi", show=False,peakwindow=0.111, beatwindow=0.667, beatoffset=0.02, mindelay=0.3):
     """Find systolic peaks in a photoplethysmogram (PPG) signal.
     Parameters
     ----------

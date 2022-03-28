@@ -8,7 +8,7 @@ from neurokit2 import ppg_clean
 import ppg_findpeaks_v2
 
 
-def ppg_process(ppg_signal, sampling_rate=1000, **kwargs):
+def ppg_process_v2(ppg_signal, sampling_rate=1000,peakwindow=0.111, beatwindow=0.667, beatoffset=0.02, mindelay=0.3, **kwargs):
     """Process a photoplethysmogram (PPG)  signal.
     Convenience function that automatically processes a photoplethysmogram signal.
     Parameters
@@ -46,7 +46,7 @@ def ppg_process(ppg_signal, sampling_rate=1000, **kwargs):
     ppg_cleaned = ppg_clean(ppg_signal, sampling_rate=sampling_rate)
 
     # Find peaks
-    info = ppg_findpeaks_v2(ppg_cleaned, sampling_rate=sampling_rate, **kwargs)
+    info = ppg_findpeaks_v2(ppg_cleaned, sampling_rate=sampling_rate, peakwindow=peakwindow, beatwindow=beatwindow, beatoffset=beatoffset, mindelay=0.3, **kwargs)
     info['sampling_rate'] = sampling_rate  # Add sampling rate in dict info
 
     # Mark peaks

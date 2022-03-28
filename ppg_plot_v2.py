@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 
-def ppg_plot(ppg_signals, sampling_rate=None,task=None):
+def ppg_plot_v2(ppg_signals, sampling_rate=None,task=None):
     """Visualize photoplethysmogram (PPG) data.
     Parameters
     ----------
