@@ -3,9 +3,10 @@ from warnings import warn
 
 import numpy as np
 import pandas as pd
+from neurokit2 import misc,signal
+from neurokit2.misc import as_vector, NeuroKitWarning
+from neurokit2.signal import signal_filter
 
-from ..misc import as_vector, NeuroKitWarning
-from ..signal import signal_filter
 
 
 def ppg_clean_v2(ppg_signal, sampling_rate=1000, heart_rate=None, method="elgendi", lowcut=0.5, highcut=8, order=3):
