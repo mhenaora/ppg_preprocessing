@@ -4,37 +4,8 @@ import numpy as np
 import pandas as pd
 
 
-def ppg_plot_v2(ppg_signals, sampling_rate=None,task=None):
-    """Visualize photoplethysmogram (PPG) data.
-    Parameters
-    ----------
-    ppg_signals : DataFrame
-        DataFrame obtained from `ppg_process()`.
-    sampling_rate : int
-        The sampling frequency of the PPG (in Hz, i.e., samples/second). Needs to be supplied if the data
-        should be plotted over time in seconds. Otherwise the data is plotted over samples. Defaults to None.
-    Returns
-    -------
-    fig
-        Figure representing a plot of the processed PPG signals.
-    Examples
-    --------
-    >>> import neurokit2 as nk
-    >>>
-    >>> # Simulate data
-    >>> ppg = nk.ppg_simulate(duration=10, sampling_rate=1000, heart_rate=70)
-    >>>
-    >>> # Process signal
-    >>> signals, info = nk.ppg_process(ppg, sampling_rate=1000)
-    >>>
-    >>> # Plot
-    >>> nk.ppg_plot(signals) #doctest: +ELLIPSIS
-    <Figure ...>
-    See Also
-    --------
-    ppg_process
-    """
-
+def ppg_plot_v2(ppg_signals, sampling_rate=None,task=None,user=None):
+   
     # Sanity-check input.
     if not isinstance(ppg_signals, pd.DataFrame,task):
         raise ValueError(
@@ -61,7 +32,7 @@ def ppg_plot_v2(ppg_signals, sampling_rate=None,task=None):
     plt.subplots_adjust(hspace=0.4)
 
     # Plot cleaned and raw PPG
-    ax0.set_title("Raw and Cleaned Signal")
+    ax0.set_title(user+ " "+task+ ": "+"Raw and Cleaned Signal")
     ax0.plot(x_axis, ppg_signals["PPG_Raw"], color="#B0BEC5", label="Raw", zorder=1)
     ax0.plot(x_axis, ppg_signals["PPG_Clean"], color="#FB1CF0", label="Cleaned", zorder=1, linewidth=1.5)
 
